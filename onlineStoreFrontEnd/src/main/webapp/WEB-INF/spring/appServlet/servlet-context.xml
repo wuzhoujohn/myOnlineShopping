@@ -28,7 +28,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	
+	<!-- test -->
 	<!-- Include an entry of cookieLocaleResolver bean in the spring's configuration file -->
 	<!-- this is mandatory to put an entry of cookieLocaleResolver bean in the spring's configuration file when using localechangeinterceptor, or it won't work -->
 	<beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
