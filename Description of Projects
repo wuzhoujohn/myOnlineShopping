@@ -1,0 +1,5 @@
+Part1:
+1. create a repository for holding the maven projects. Create the git entry in eclipse
+2. create two seperate maven projects under the git entry folder that is created inside eclipse, 
+  one is frontend, and one is backend. Link these two projects to the github. 
+3. Push the two projects to the github
