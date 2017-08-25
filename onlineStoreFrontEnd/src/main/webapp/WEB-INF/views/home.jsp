@@ -62,6 +62,11 @@
 		<%@include file="contact.jsp"%>
 	</c:if>
 	
+	<!-- assure that the homeContent will be displayed only if user clicks contact button -->
+	<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+		<%@include file="listProducts.jsp"%>
+	</c:if>
+	
 	<!-- /.container -->
 
 	<!-- Footer comes here -->

@@ -1,20 +1,32 @@
 package com.johnwu.onlineStoreFrontEnd.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.johnwu.onlineStoreBackEnd.dao.CategoryDAO;
+import com.johnwu.onlineStoreBackEnd.dto.Category;
 
 
 @Controller
 public class HomeController {
 
+	//the autowired annotation is the spring framework dependency injection, so you
+	// dont need to instantiate this class here. 
+	@Autowired
+	private CategoryDAO categoryDAO;
+	
 	@RequestMapping(value ={ "/", "/home", "/index"}, method = RequestMethod.GET)
 	public ModelAndView home() {
 		//System.out.println("we are in home handlerMethod");
 		ModelAndView model = new ModelAndView("home");
 		model.addObject("title", "home page");
 		model.addObject("userClickHome", true);
+		//passing the list of categories
+		model.addObject("categories", categoryDAO.list());
 		return model;
 	}
 	
@@ -31,6 +43,39 @@ public class HomeController {
 		ModelAndView model = new ModelAndView("home");
 		model.addObject("title", "contact page");
 		model.addObject("userClickContact", true);
+		return model;
+	}
+	/*
+	 * Methods to load all the products and products based on category
+	 * */
+	
+	@RequestMapping(value = "/show/all/products", method = RequestMethod.GET)
+	public ModelAndView showAllProducts() {
+		ModelAndView model = new ModelAndView("home");
+		model.addObject("title", "all products");
+		model.addObject("categories", categoryDAO.list());
+		model.addObject("userClickAllProducts", true);
+		return model;
+	}
+	
+	@RequestMapping(value = "/show/category/{id}/products", method = RequestMethod.GET)
+	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
+		ModelAndView model = new ModelAndView("home");
+		//categoryDAO to fetch a single category
+		
+		Category category = null;
+		
+		category = categoryDAO.get(id);
+		
+		model.addObject("title", category.getName());
+		
+		//passing the list of categories
+		model.addObject("categories", categoryDAO.list());
+		
+		//passing the single category
+		model.addObject("category", category);
+		
+		model.addObject("userClickCategoryProducts", true);
 		return model;
 	}
 	

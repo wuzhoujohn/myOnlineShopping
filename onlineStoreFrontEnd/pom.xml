@@ -12,33 +12,39 @@
 		<spring.version>4.3.10.RELEASE</spring.version>
 	</properties>
 	<dependencies>
+		<!-- dependency of frontend project, link backend project -->
+		<dependency>
+			<groupId>com.johnwu</groupId>
+			<artifactId>onlineStoreBackEnd</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-	<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
-		    <groupId>javax</groupId>
-		    <artifactId>javaee-api</artifactId>
-		    <version>${javaee.version}</version>
-		    <scope>provided</scope>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${javaee.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<!-- spring -->
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <version>${spring.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- JSTL -->
 		<dependency>
-		    <groupId>jstl</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
-		</dependency>			
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
