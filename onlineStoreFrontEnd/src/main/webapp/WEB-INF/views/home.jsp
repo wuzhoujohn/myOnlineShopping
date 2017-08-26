@@ -26,12 +26,18 @@
 
 <!-- get the title property from the model -->
 <title>Online Shopping Store - ${title}</title>
+<script>
+	window.menu = '${title}'
+</script>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
+
+<!-- bootstrap theme css file -->
+<link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
 
 </head>
 
@@ -65,6 +71,7 @@
 	<script src="${js}/jquery.min.js"></script>
 	<script src="${js}/popper.min.js"></script>
 	<script src="${js}/bootstrap.min.js"></script>
+	<script src="${js}/app.js"></script>
 
 </body>
 
