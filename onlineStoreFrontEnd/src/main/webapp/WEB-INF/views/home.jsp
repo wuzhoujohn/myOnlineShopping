@@ -27,7 +27,9 @@
 <!-- get the title property from the model -->
 <title>Online Shopping Store - ${title}</title>
 <script>
-	window.menu = '${title}'
+	window.menu = '${title}';
+	
+	window.contextRoot = '${contextRoot}'
 </script>
 
 <!-- Bootstrap core CSS -->
@@ -38,6 +40,9 @@
 
 <!-- bootstrap theme css file -->
 <link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
+
+<!--  bootstrap datatable css file -->
+<link href="${css}/dataTables.bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -73,9 +78,16 @@
 	<%@include file="./sharedPages/footer.jsp"%>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.min.js"></script>
+	<script src="${js}/jquery.js"></script>
 	<script src="${js}/popper.min.js"></script>
 	<script src="${js}/bootstrap.min.js"></script>
+	<!-- DataTable PlugIn -->
+	<script src="${js}/jquery.dataTables.min.js"></script>
+	
+	<!-- datatable bootstrap js file -->
+	<script src="${js}/dataTables.bootstrap.min.js"></script>
+	
+	
 	<script src="${js}/app.js"></script>
 
 </body>
