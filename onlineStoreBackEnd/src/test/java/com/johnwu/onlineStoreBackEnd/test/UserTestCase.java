@@ -60,7 +60,9 @@ public class UserTestCase {
 		if(user.getRole().equals("USER")){
 			//create a cart for this user
 			cart = new Cart();
-			cart.setUserId(user.getId());
+			
+			//link the cart with the user
+			cart.setUser(user);
 			
 			//add the cart
 			assertEquals("added cart", true, userDAO.addCart(cart));
