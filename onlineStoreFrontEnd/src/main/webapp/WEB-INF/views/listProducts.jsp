@@ -40,19 +40,23 @@
 					<table id="productListTable" class="table table-striped table-borderd">
 						<thead>
 							<tr>
+								<th></th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
 								<th>Quantity</th>
+								<th></th>
 							</tr>
 						</thead>
 						<!-- tbody will be filled by the json data -->
 						<tfoot>
 							<tr>
+								<th></th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
 								<th>Quantity</th>
+								<th></th>
 							</tr>
 						</tfoot>
 					

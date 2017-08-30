@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.johnwu.onlineStoreBackEnd.dao.CategoryDAO;
+import com.johnwu.onlineStoreBackEnd.dao.ProductDAO;
 import com.johnwu.onlineStoreBackEnd.dto.Category;
+import com.johnwu.onlineStoreBackEnd.dto.Product;
 
 
 @Controller
@@ -18,6 +20,9 @@ public class HomeController {
 	// dont need to instantiate this class here. 
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	@RequestMapping(value ={ "/", "/home", "/index"}, method = RequestMethod.GET)
 	public ModelAndView home() {
@@ -79,4 +84,22 @@ public class HomeController {
 		return model;
 	}
 	
+	/*
+	 * viewing a single product
+	 * */
+	
+	@RequestMapping(value = "/show/{id}/product", method = RequestMethod.GET)
+	public ModelAndView showSingleProduct(@PathVariable("id") int id) {
+		ModelAndView model = new ModelAndView("home");
+		Product product = productDAO.get(id);
+		
+		//update the count of view and then update the product
+		product.setViews(product.getViews() + 1);
+		productDAO.update(product);
+		
+		model.addObject("title", product.getName());
+		model.addObject("product", product);
+		model.addObject("userClickShowProduct", true);
+		return model;
+	}
 }

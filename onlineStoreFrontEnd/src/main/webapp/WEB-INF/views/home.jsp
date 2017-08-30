@@ -72,6 +72,11 @@
 		<%@include file="listProducts.jsp"%>
 	</c:if>
 	
+	<!-- <!-- assure that the homeContent will be displayed only if user clicks single product button --> -->
+	<c:if test="${userClickShowProduct == true}">
+		<%@include file="singleProduct.jsp"%>
+	</c:if>
+	
 	<!-- /.container -->
 
 	<!-- Footer comes here -->
