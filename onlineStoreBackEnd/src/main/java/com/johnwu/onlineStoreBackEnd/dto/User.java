@@ -33,7 +33,9 @@ public class User {
 	private String password;
 	private boolean enabled = true;
 	
-	@OneToOne
+	//this is saying the user is going to take the ownship of the relation between user and cart, user is the parent
+	//cart is the child
+	@OneToOne(mappedBy = "user")
 	private Cart cart;
 	
 	public int getId() {
