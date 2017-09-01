@@ -1,5 +1,8 @@
 package com.johnwu.onlineStoreBackEnd.dto;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +13,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_detail")
-public class User {
+//if you wanna save smth inside the flow scope, this class should implement Serializable interface 
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/*
 	 * private fields for user
 	 * */
@@ -35,9 +44,17 @@ public class User {
 	
 	//this is saying the user is going to take the ownship of the relation between user and cart, user is the parent
 	//cart is the child
-	@OneToOne(mappedBy = "user")
+	//a cart table record will be created by using cascade, if the associated user is deleted, the cart record will be
+	//deleted as well. 
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Cart cart;
 	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 	public int getId() {
 		return id;
 	}

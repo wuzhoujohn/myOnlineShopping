@@ -30,7 +30,7 @@
 			<hr />
 			
 			<c:choose>
-				<c:when text="${product.quantity < 1}">
+				<c:when test="${product.quantity < 1}">
 					<h6>Quantity Available: <span style="color: red">Out Of Stock!</span> </h6>
 				</c:when>
 				<c:otherwise>
@@ -40,7 +40,7 @@
 			
 			
 			<c:choose>
-				<c:when text="${product.quantity < 1}">
+				<c:when test="${product.quantity < 1}">
 					<a href="javascript:void(0)" class="btn btn-success disabled"><strike><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</strike></a>
 				</c:when>
 				<c:otherwise>

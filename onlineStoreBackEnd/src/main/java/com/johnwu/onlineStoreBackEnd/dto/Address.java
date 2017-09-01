@@ -1,23 +1,34 @@
 package com.johnwu.onlineStoreBackEnd.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Address {
+public class Address implements Serializable{
 	/*
 	 * private fields
 	 * */
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "user_id")
-	private int userId;
+	
+	//a user can have many addresses
+	@ManyToOne
+	private User user;
 	
 	@Column(name = "address_line_one")
 	private String addressLineOne;
@@ -35,6 +46,8 @@ public class Address {
 	private boolean shipping;
 	private boolean billing;
 	
+	private String country;
+	
 	
 	public int getId() {
 		return id;
@@ -42,12 +55,7 @@ public class Address {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+
 	public String getAddressLineOne() {
 		return addressLineOne;
 	}
@@ -96,6 +104,12 @@ public class Address {
 	public void setBilling(boolean billing) {
 		this.billing = billing;
 	}
-	private String country;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 
 }
