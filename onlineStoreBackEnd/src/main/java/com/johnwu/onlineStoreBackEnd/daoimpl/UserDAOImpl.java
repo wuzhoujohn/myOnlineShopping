@@ -58,7 +58,6 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User getByEmail(String email) {
 		// TODO Auto-generated method stub
-
 		String selectQuery = "FROM User where email = :email";
 		try{
 			return sessionFactory.getCurrentSession()

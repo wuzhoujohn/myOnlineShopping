@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_detail")
@@ -28,21 +31,34 @@ public class User implements Serializable{
 	private int id;
 	
 	@Column(name = "first_name")
+	@NotBlank(message="Please enter first name")
 	private String firstName;
 	
 	@Column(name = "last_name")
+	@NotBlank(message="Please enter last name")
 	private String lastName;
 	
+	@NotBlank(message="Please enter email address")
 	private String email;
 	
 	@Column(name = "contact_number")
+	@NotBlank(message="Please enter contact number")
 	private String contactNumber;
 	
 	private String role;
+	
+	@NotBlank(message="Please enter password")
 	private String password;
+	//confirm password transient field
+	//@Transient will make the field not to be stored in the database
+	@Transient
+	private String confirmPassword;
+	
+
 	private boolean enabled = true;
 	
-	//this is saying the user is going to take the ownship of the relation between user and cart, user is the parent
+	
+	//this is saying the user is going to take the ownership of the relation between user and cart, user is the parent
 	//cart is the child
 	//a cart table record will be created by using cascade, if the associated user is deleted, the cart record will be
 	//deleted as well. 
@@ -102,6 +118,13 @@ public class User implements Serializable{
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 	
 }

@@ -85,7 +85,7 @@ public class UserTestCase {
 		}
 	}*/
 	
-/*	@Test
+	@Test
 	public void testAdd(){
 		user = new User();
 		user.setFirstName("Johnny");
@@ -110,9 +110,9 @@ public class UserTestCase {
 			
 			assertEquals("added user", true, userDAO.addUser(user));
 		}
-	}*/
+	}
 	
-	@Test
+/*	@Test
 	public void testUpdateCart(){
 		
 		user = userDAO.getByEmail("abcde@gmail.com");
@@ -121,5 +121,5 @@ public class UserTestCase {
 		cart.setGrandTotal(333);
 		cart.setCartLines(3);
 		assertEquals("added the cart", true, userDAO.updateCart(cart));
-	}
+	}*/
 }

@@ -19,6 +19,7 @@
 									<!--  the path is associated with the filed inside the user java class. we would also need to create
 									a variable inside signup-flow.xml file -->
 										<sf:input type="text" path="firstName" class="form-control" placeholder="First Name" />
+										<sf:errors path="firstName" cssClass="help-block" element="em" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -27,6 +28,7 @@
 									<!--  the path is associated with the filed inside the user java class. we would also need to create
 									a variable inside signup-flow.xml file -->
 										<sf:input type="text" path="lastName" class="form-control" placeholder="Last Name" />
+										<sf:errors path="lastName" cssClass="help-block" element="em" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -35,6 +37,7 @@
 									<!--  the path is associated with the filed inside the user java class. we would also need to create
 									a variable inside signup-flow.xml file -->
 										<sf:input type="text" path="email" class="form-control" placeholder="Email Address" />
+										<sf:errors path="email" cssClass="help-block" element="em" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -43,6 +46,7 @@
 									<!--  the path is associated with the filed inside the user java class. we would also need to create
 									a variable inside signup-flow.xml file -->
 										<sf:input type="text" path="contactNumber" class="form-control" placeholder="Contact Number" />
+										<sf:errors path="contactNumber" cssClass="help-block" element="em" />
 									</div>
 								</div>
 							 	<div class="form-group">
@@ -50,7 +54,17 @@
 									<div class="col-md-8">
 									<!--  the path is associated with the filed inside the user java class. we would also need to create
 									a variable inside signup-flow.xml file -->
-										<sf:input type="text" path="password" class="form-control" placeholder="Password" />
+										<sf:input type="password" path="password" class="form-control" placeholder="Password" />
+										<sf:errors path="password" cssClass="help-block" element="em" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4">Confirm Password</label>
+									<div class="col-md-8">
+									<!--  the path is associated with the filed inside the user java class. we would also need to create
+									a variable inside signup-flow.xml file -->
+										<sf:input type="password" path="confirmPassword" class="form-control" placeholder="Re-enter Password" />
+										<sf:errors path="password" cssClass="help-block" element="em" />
 									</div>
 								</div>
 								<div class="form-group">

@@ -58,7 +58,7 @@ public class HibernateConfig {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
-		//add a property that will create the table for us
+		//add a property that will create or update the table for us
 		properties.put("hibernate.hbm2ddl.auto", "update");
 		
 		return properties;

@@ -20,6 +20,7 @@
 									a variable inside signup-flow.xml file -->
 								<sf:input type="text" path="addressLineOne" class="form-control"
 									placeholder="Enter Address Line one" />
+								<sf:errors path="addressLineOne" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -38,6 +39,7 @@
 									a variable inside signup-flow.xml file -->
 								<sf:input type="text" path="city" class="form-control"
 									placeholder="Enter City" />
+								<sf:errors path="city" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -47,6 +49,7 @@
 									a variable inside signup-flow.xml file -->
 								<sf:input type="text" path="province" class="form-control"
 									placeholder="Enter Province" />
+								<sf:errors path="province" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -56,6 +59,7 @@
 									a variable inside signup-flow.xml file -->
 								<sf:input type="text" path="country" class="form-control"
 									placeholder="Enter Country" />
+								<sf:errors path="country" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -65,6 +69,7 @@
 									a variable inside signup-flow.xml file -->
 								<sf:input type="text" path="postalCode" class="form-control"
 									placeholder="XXX XXX" />
+								<sf:errors path="postalCode" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<div class="form-group">
