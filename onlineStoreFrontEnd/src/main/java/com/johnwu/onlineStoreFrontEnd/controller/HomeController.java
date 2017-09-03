@@ -102,4 +102,16 @@ public class HomeController {
 		model.addObject("userClickShowProduct", true);
 		return model;
 	}
+	
+	/*
+	 * for login
+	 * */
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ModelAndView login() {
+		ModelAndView model = new ModelAndView("login");
+		
+
+		return model;
+	}
 }
