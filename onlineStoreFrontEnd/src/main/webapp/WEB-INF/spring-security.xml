@@ -19,11 +19,11 @@
 	
 	<!-- we want to match all the urls, so we need to use double '*' -->
 	<http>
-		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/**" access="hasAuthority('USER')" />
+		<intercept-url pattern="/cart/**" access="hasAuthority('USER')" />
+		<intercept-url pattern="/**" access="permitAll" />
 		<!-- this will cause the web app to generate a login form before reaching the main page -->
 		<form-login login-page="/login" />
-		<logout />
+		<access-denied-handler error-page="/access-denied" />
 	</http>
 
 	<!-- add the authentication manager -->

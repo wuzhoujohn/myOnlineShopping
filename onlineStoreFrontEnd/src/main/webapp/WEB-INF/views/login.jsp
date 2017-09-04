@@ -28,7 +28,7 @@
 <title>Online Shopping Store - ${title}</title>
 <script>
 	window.menu = '${title}';
-	
+
 	window.contextRoot = '${contextRoot}'
 </script>
 
@@ -49,18 +49,35 @@
 <body>
 	<div class="wrapper">
 		<!-- navigation -->
-		<nav class="navabar navabar-inverse navabar-fixed-top" role="navigation">
+		<nav class="navabar navabar-inverse navabar-fixed-top"
+			role="navigation">
 			<div class="container">
 				<!-- brand and toggle get grouped for better mobile display -->
 				<div class="navabar-header">
-					<a class="navabar-brand" href="${contextRoot}/home">Online Store</a>
+					<a class="navabar-brand" href="${contextRoot}/home">Online
+						Store</a>
 				</div>
 			</div>
 		</nav>
-		
-		<!-- page content -->	
+
+		<!-- page content -->
 		<div class="content">
 			<div class="container">
+				<c:if test="${not empty message}">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+							<div class="alert alert-danger">${message}</div>
+						</div>
+					</div>
+				</c:if>
+			<!-- when user has logged out -->
+				<c:if test="${not empty logout}">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+							<div class="alert alert-danger">${logout}</div>
+						</div>
+					</div>
+				</c:if>
 				<div class="row">
 					<div class="col-md-offset-3 col-md-6">
 						<div class="panel panel-primary">
@@ -68,25 +85,37 @@
 								<h4>Login</h4>
 							</div>
 							<div class="panel-body">
-								<form action="${contextRoot}/login" method="POST" class="form-horizontal" id="loginForm">
+								<form action="${contextRoot}/login" method="POST"
+									class="form-horizontal" id="loginForm">
 									<div class="form-group">
-										<label for="username" class="col-md-4 control-label">Email: </label>
+										<label for="username" class="col-md-4 control-label">Email:
+										</label>
 										<div class="col-md-8">
-											<input type="text" name="username" id="username" class="form-control" />
+											<input type="text" name="username" id="username"
+												class="form-control" />
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="password" class="col-md-4 control-label">Email: </label>
+										<label for="password" class="col-md-4 control-label">Email:
+										</label>
 										<div class="col-md-8">
-											<input type="password" name="password" id="password" class="form-control" />
+											<input type="password" name="password" id="password"
+												class="form-control" />
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-offset-4 col-md-8">
 											<input type="submit" value="Login" class="btn btn-primary" />
+											<input type="hidden" name="${_csrf.parameterName}"
+												value="${_csrf.token}" />
 										</div>
 									</div>
 								</form>
+							</div>
+							<div class="panel-footer">
+								<div class="text-right">
+									New User - <a href="${contextRoot}/register">Register Here</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -94,7 +123,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- /.container -->
 
 	<!-- Footer comes here -->
@@ -104,8 +133,8 @@
 	<script src="${js}/jquery.js"></script>
 	<script src="${js}/popper.min.js"></script>
 	<script src="${js}/bootstrap.min.js"></script>
-	
-	
+	<script src="${js}/jquery.validate.min.js"></script>
+	<script src="${js}/jquery.validate.js"></script>
 	<script src="${js}/app.js"></script>
 
 </body>
