@@ -77,6 +77,11 @@
 		<%@include file="singleProduct.jsp"%>
 	</c:if>
 	
+	<!-- <!-- assure that the cart will be displayed only if user clicks single product button --> -->
+	<c:if test="${userClickShowCart == true}">
+		<%@include file="cart.jsp"%>
+	</c:if>
+	
 	<!-- /.container -->
 
 	<!-- Footer comes here -->

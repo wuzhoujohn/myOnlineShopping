@@ -22,6 +22,9 @@ values ('Annie', 'Wong', 'SUPPLIER', true, 'supplier1', 'dec@hotmail.com', '345-
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number) 
 values ('Michael', 'Smith', 'SUPPLIER', true, 'supplier2', '345abc@hotmail.com', '345-345-567');
 
+INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number) 
+values ('Johnny', 'Dep', 'USER', true, '123456', 'abcde@gmail.com', '123-456-789');
+
 CREATE TABLE product (
 	id IDENTITY,
 	code VARCHAR(20),
@@ -111,3 +114,16 @@ INSERT INTO address( user_id, address_line_one, address_line_two, city, state, c
 VALUES (2, '102 Sabarmati Society, Mahatma Gandhi Road', 'Near Salt Lake, Gandhi Nagar', 'Ahmedabad', 'Gujarat', 'India', '111111', true, false );
 -- adding a cart for testing 
 INSERT INTO cart (user_id, grand_total, cart_lines) VALUES (null, 0, 0);
+
+CREATE TABLE cart_line(
+	id IDENTITY,
+	cart_id int,
+	total DECIMAL(10, 2),
+	product_id int,
+	product_count int,
+	buying_price DECIMAL(10, 2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_cart_id FOREIGN KEY (cart_id) REFERENCES cart (id),
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id) REFERENCES product (id),
+	CONSTRAINT pk_cartline_id PRIMARY KEY(id)
+);
