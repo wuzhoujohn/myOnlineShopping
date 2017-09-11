@@ -36,24 +36,9 @@ public class Cart implements Serializable{
 	@Column(name = "grand_total")
 	private double grandTotal;
 	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	@Column(name = "cart_lines")
 	private int cartLines;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	/*public int getUserId() {
 		return userId;
@@ -77,5 +62,21 @@ public class Cart implements Serializable{
 
 	public void setCartLines(int cartLines) {
 		this.cartLines = cartLines;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

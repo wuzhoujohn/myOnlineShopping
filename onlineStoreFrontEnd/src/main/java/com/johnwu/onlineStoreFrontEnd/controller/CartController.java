@@ -17,7 +17,7 @@ public class CartController {
 	private CartService cartService;
 	
 	@RequestMapping("/show")
-	public ModelAndView showCart(@RequestParam(name = "result", required=false)String result) {
+	public ModelAndView showCart(@RequestParam(name = "result", required=false) String result) {
 		ModelAndView mv = new ModelAndView("home");
 		if(result!=null) {
 			switch(result) {
@@ -42,21 +42,21 @@ public class CartController {
 	}
 	
 	@RequestMapping("/{cartLineId}/update")
-	public String updateCart(@PathVariable int cartLineId, @RequestParam int count) {		
+	public String updateCart(@PathVariable("cartLineId") int cartLineId, @RequestParam("count") int count) {		
 		String response = cartService.updateCartLine(cartLineId, count);		
 		return "redirect:/cart/show?"+response;
 		
 	}
 		
 	@RequestMapping("/{cartLineId}/delete")
-	public String updateCart(@PathVariable int cartLineId) {		
+	public String updateCart(@PathVariable("cartLineId") int cartLineId) {		
 		String response = cartService.deleteCartLine(cartLineId);		
 		return "redirect:/cart/show?"+response;
 		
 	}
 	
 	@RequestMapping("/add/{productId}/product")
-	public String addCart(@PathVariable int productId) {		
+	public String addCart(@PathVariable("cartLineId") int productId) {		
 		String response = cartService.addCartLine(productId);		
 		return "redirect:/cart/show?"+response;
 		

@@ -1,4 +1,4 @@
-package com.johnwu.onlineStoreFrontEnd.service;
+ package com.johnwu.onlineStoreFrontEnd.service;
 
 import java.util.List;
 
@@ -44,9 +44,16 @@ public class CartService {
 		else {			
 			Product product = cartLine.getProduct();
 			double oldTotal = cartLine.getTotal();
+			/*check how many products available right now, 
+			 * if there are only 2 available, but user wants to buy 3
+			 * it will set the count to maximum number that is available currently
+			 * */
+			
 			if(product.getQuantity() <= count) {
 				count = product.getQuantity();
 			}
+			
+			
 			cartLine.setProductCount(count);
 			cartLine.setBuyingPrice(product.getUnitPrice());
 			cartLine.setTotal(product.getUnitPrice() * count);

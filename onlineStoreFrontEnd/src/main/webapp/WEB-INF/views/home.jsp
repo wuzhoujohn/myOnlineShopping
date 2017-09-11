@@ -72,12 +72,12 @@
 		<%@include file="listProducts.jsp"%>
 	</c:if>
 	
-	<!-- <!-- assure that the homeContent will be displayed only if user clicks single product button --> -->
+	<!-- <!-- assure that the homeContent will be displayed only if user clicks single product button -->
 	<c:if test="${userClickShowProduct == true}">
 		<%@include file="singleProduct.jsp"%>
 	</c:if>
 	
-	<!-- <!-- assure that the cart will be displayed only if user clicks single product button --> -->
+	<!-- <!-- assure that the cart will be displayed only if user clicks single product button -->
 	<c:if test="${userClickShowCart == true}">
 		<%@include file="cart.jsp"%>
 	</c:if>
@@ -97,6 +97,9 @@
 	<!-- datatable bootstrap js file -->
 	<script src="${js}/dataTables.bootstrap.min.js"></script>
 	
+	<script src="${js}/jquery.validate.js"></script>
+	
+	<script src="${js}/bootbox.min.js"></script>
 	
 	<script src="${js}/app.js"></script>
 
