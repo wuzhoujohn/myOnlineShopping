@@ -11,6 +11,9 @@ $(function(){
 			break;
 		case 'User Cart' :
 			$('#userCart').addClass('active');
+		case 'Manage Products' :
+			$('#manageProducts').addClass('active');
+			break;
 		default :
 			if(menu == "home page") break;
 			$('#home').addClass('active');
@@ -89,6 +92,19 @@ if($table.length){
 }	
 	
 
+
+	//dismissing the alert after 3 seconds
+	//select the element by using the alert class
+	var $alert = $('.alert');
+
+	if($alert.length){
+		//setTimeout function form jquery, it takes two params, one is function and one is time(3000 millseconds)
+		setTimeout(function(){
+			//the alert will fade out slowly
+			$alert.fadeOut('slow');
+		}, 3000)
+		
+	}
 	//--------------------------------
 	// validation code for login
 	
