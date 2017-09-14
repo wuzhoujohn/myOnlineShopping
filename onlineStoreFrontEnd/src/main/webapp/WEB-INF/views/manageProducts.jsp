@@ -71,6 +71,15 @@
 									placeholder="Quantity Available" class="form-control" />
 							</div>
 						</div>
+						
+						<!-- file element for image upload -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file">Select An Image: </label>
+							<div class="col-md-8">
+								<sf:input type="file" path="file" id="file" class="form-control" />
+								<sf:errors path="file" cssClass="help-block" element="em" />
+							</div>
+						</div>
 
 						
 						<div class="form-group">

@@ -65,6 +65,10 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- bean for spring to handle file uploads with using standardServletMultipartResolver -->
+	<!-- id must be multipartResolver -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+	
 	<!-- test -->
 	<!-- Include an entry of cookieLocaleResolver bean in the spring's configuration file -->
 	<!-- this is mandatory to put an entry of cookieLocaleResolver bean in the spring's configuration file when using localechangeinterceptor, or it won't work -->
