@@ -60,7 +60,7 @@ public class User implements Serializable{
 	
 	//this is saying the user is going to take the ownership of the relation between user and cart, user is the parent
 	//cart is the child
-	//a cart table record will be created by using cascade, if the associated user is deleted, the cart record will be
+	//a cart record of cart table will be created by using cascade, if the associated user is deleted, the cart record will be
 	//deleted as well. 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Cart cart;

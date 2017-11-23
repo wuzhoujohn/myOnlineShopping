@@ -29,7 +29,6 @@ public class HibernateConfig {
 	//datasource bean will be available
 	@Bean("dataSource")
 	public DataSource getDataSource(){
-		
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName(DATABASE_DRIVER);
 		dataSource.setUrl(DATABASE_URL);
@@ -39,11 +38,9 @@ public class HibernateConfig {
 		return dataSource;		
 	}
 	
-	//sessionFactory bean will be available
-	
+	//sessionFactory bean will be available, this method will use the bean we have created before, which is dataSource
 	@Bean
-	public SessionFactory getSessionFactory(DataSource dataSource){
-		
+	public SessionFactory getSessionFactory(DataSource dataSource){	
 		LocalSessionFactoryBuilder sessionBulider = new LocalSessionFactoryBuilder(dataSource);
 		sessionBulider.addProperties(getHibernateProperties());
 		//scan all the entities created in the dto package. 
@@ -58,7 +55,7 @@ public class HibernateConfig {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
-		//add a property that will create or update the table for us
+		//add a property that will create or update the table for us(create will drop previous existing table and create new ones)
 		properties.put("hibernate.hbm2ddl.auto", "update");
 		
 		return properties;
@@ -67,7 +64,6 @@ public class HibernateConfig {
 	//transactionManager bean is available
 	@Bean
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionBulider){
-		
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionBulider);
 		return transactionManager;
 	}

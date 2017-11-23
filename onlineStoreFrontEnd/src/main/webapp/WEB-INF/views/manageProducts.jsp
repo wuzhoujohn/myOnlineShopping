@@ -121,7 +121,6 @@
 		</div>
 	</div>
 
-<%-- 
 	<div class="row">
 		<div class="col-xs-12">
 			<h3>Available Products</h3>
@@ -130,14 +129,13 @@
 
 		<div class="col-xs-12">
 			<div class="container-fluid">
-
 				<div class="table-responsive">
 					<table id="adminProductsTable"
 						class="table table-striped table-bordered">
 						<thead>
 							<tr>
 								<th>Id</th>
-								<th>&#160;</th>
+								<th>Picture</th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Quantity</th>
@@ -149,7 +147,7 @@
 						<tfoot>
 							<tr>
 								<th>Id</th>
-								<th>&#160;</th>
+								<th>Picture</th>
 								<th>Brand</th>
 								<th>Name</th>
 								<th>Quantity</th>
@@ -163,13 +161,11 @@
 				</div>
 
 			</div>
-
-
 		</div>
 	</div>
 
 
-	<div class="modal fade" id="myCategoryModal" role="dialog"
+<%-- 	<div class="modal fade" id="myCategoryModal" role="dialog"
 		tabindex="-1">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">

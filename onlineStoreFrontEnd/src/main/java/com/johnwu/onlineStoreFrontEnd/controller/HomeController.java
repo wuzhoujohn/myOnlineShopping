@@ -113,7 +113,6 @@ public class HomeController {
 	/*
 	 * for login
 	 * */
-	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(name="error", required = false) String error,
 				@RequestParam(name="logout", required = false) String logout) {

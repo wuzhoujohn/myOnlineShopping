@@ -9,14 +9,14 @@
 	<var name="user" class="com.johnwu.onlineStoreBackEnd.dto.User"/>
 	<var name="billing"	class="com.johnwu.onlineStoreBackEnd.dto.Address" />
 	
-	<!-- returning and adding inside the flow a registerModel instance when the flow starts-->
+	<!-- returning and adding inside the flow scope a registerModel instance when the flow starts-->
 	<on-start>
 		<evaluate expression="registerHandler.init()" result="flowScope.registerModel" />
 	</on-start>
 
 <!-- the start state -->
 
-	<!-- pass the user created into the model of signup-personal jsp file -->
+	<!-- pass the user created into the model of signup-personal jsp file, this is the master page of the register flow -->
 	<view-state id="personal" view="flows/register/signup-personal" model="user">
 		<transition on="billing" to="validate"/>
 		<on-exit>

@@ -56,7 +56,7 @@ public class CartController {
 	}
 	
 	@RequestMapping("/add/{productId}/product")
-	public String addCart(@PathVariable("cartLineId") int productId) {		
+	public String addCart(@PathVariable("productId") int productId) {		
 		String response = cartService.addCartLine(productId);		
 		return "redirect:/cart/show?"+response;
 		

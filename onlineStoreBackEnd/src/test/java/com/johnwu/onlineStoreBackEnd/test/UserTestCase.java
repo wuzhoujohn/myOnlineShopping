@@ -20,6 +20,8 @@ public class UserTestCase {
 	
 	@BeforeClass
 	public static void init(){
+		/*the reason that we need to create a annotationConfigApplicationContext is because all the beans and components are not 
+		 * scanned in this junit class. We would need to create a context and manually scan the package and then get the bean*/
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.johnwu.onlineStoreBackEnd");
 		context.refresh();
@@ -89,7 +91,7 @@ public class UserTestCase {
 	public void testAdd(){
 		user = new User();
 		user.setFirstName("Johnny");
-		user.setLastName("Dep");
+		user.setLastName("Johnny");
 		user.setEmail("abcde@gmail.com");
 		user.setContactNumber("1234234");
 		user.setRole("USER");

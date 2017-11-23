@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.johnwu.onlineStoreBackEnd.dao.CategoryDAO;
@@ -76,7 +78,6 @@ public class ManagementController {
 		}
 		
 		//create the newly created product record
-		
 		productDAO.add(product);
 		
 		//check if there is any file for the product
@@ -88,6 +89,23 @@ public class ManagementController {
 		return "redirect:/manage/products?operation=product";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/product/{id}/activation", method = RequestMethod.POST)
+	public String handleProductActivation(@PathVariable("id") int id){
+		//going to fetch the product from the database
+		Product product = productDAO.get(id);
+		
+		boolean isActive = product.isActive();
+		System.out.println("product current is " + isActive);
+		//activating and deactivating based on the value of active
+		product.setActive(!product.isActive());
+		//update the product
+		productDAO.update(product);
+		System.out.println("product after is " + product.isActive());
+		
+		return (isActive)? "You have successfully deactivated the product with id " + product.getId() :
+						   "You have successfully activated the product with id " + product.getId();
+	}
 	
 	//set a categories variable inside the model
 	@ModelAttribute("categories")
